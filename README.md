@@ -30,9 +30,9 @@ Unzip deze code en plaats de folder "Arduino-LiquidCrystal-I2C-library" in de ma
 ## Welke lcd-commando's zijn gemeenschappelijk tussen beide libraries:
 LCD commando | betekenis
 ------------ | ---------
-lcd.print(aantal);  | print data uit variabele aantal
-lcd.print("Hallo wereld!"); | print tekst "Hallo wereld!"
-lcd.setCursor(10,1); | zet cursor op 11e plaats op de 2e rij
+lcd.setCursor(10,1); | Zet cursor op 11e plaats op de 2e rij (Geef steeds de locatie aan waar je printen wil!!)
+lcd.print(aantal);  | Print data uit variabele aantal
+lcd.print("Hallo wereld!"); | Print tekst "Hallo wereld!"
 lcd.clear(); | Wis het scherm
 lcd.autoscroll(); | De tekst zal automatisch scrollen
 lcd.noAutoscroll(); | De tekst zal niet meer automatisch scrollen
@@ -41,6 +41,11 @@ lcd.noAutoscroll(); | De tekst zal niet meer automatisch scrollen
 Wanneer je een teller van 100 naar 0 laat tellen op je LCD, dan blijven de rechtse tekens op je scherm staan. 
 Dit kan je oplossen op 2 manieren:
 ##### Makkelijk:
-123
+Als je van 100 naar 99 telt, blijft er een 0 staat.  Je kan deze verwijderen door in dit geval 2 spaties te printen na het getal.
 
 ##### Moeilijk
+Het ziet er veel beter uit als de waarde die je wil tonen, mooi rechts uitgelijnd is.
+Dit zou je kunnen oplossen met een beslissing:
+Als de waarde < 100, print dan 1 spatie
+Als de waarde < 10, print dan 1 spatie.
+Op deze manier worden de waarden 100, 50, 2 correct getoond.
